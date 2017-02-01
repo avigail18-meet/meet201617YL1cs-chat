@@ -39,7 +39,8 @@ class TextBox(TextInput):
 #   self.writer.clear()
 #
 #3. If you want to make a newline character (i.e. go to the next line), just add
-#   \r to your string.  Test it out at the Python shell for practice
+#   \r to your string.  Test it out at the Python shell for practice\
+    def draw_box
 #####################################################################################
 #####################################################################################
 
