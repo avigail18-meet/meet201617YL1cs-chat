@@ -7,9 +7,10 @@ Avigail Shashoua
 #import the turtle module
 import turtle
 #import the Client class from the turtle_chat_client module
-
+from turtle_chat_client import Client
 #Finally, from the turtle_chat_widgets module, import two classes: Button and TextInput
-
+from turtle_chat_widgets import button
+from turtle_chat_widgets import TextInput
 #####################################################################################
 #####################################################################################
 
@@ -46,6 +47,7 @@ class TextBox(TextInput):
 #                                  SendButton                                       #
 #####################################################################################
 #Make a class called SendButton, which will be a subclass of Button.
+class SendButton(Button):
 #Button is an abstract class with one abstract method: fun.
 #fun gets called whenever the button is clicked.  It's jobs will be to
 #
