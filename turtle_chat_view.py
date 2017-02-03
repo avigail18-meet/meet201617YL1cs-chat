@@ -9,6 +9,12 @@
 #Finally, from the turtle_chat_widgets module, import two classes: Button and TextInput
 #####################################################################################
 #####################################################################################
+'''
+IMPORTS
+'''
+import turtle
+from turtle_chat_client import Client
+from turtle_chat_widgets import Button, TextInput
 
 #####################################################################################
 #                                   TextBox                                         #
@@ -37,7 +43,12 @@
 #   \r to your string.  Test it out at the Python shell for practice
 #####################################################################################
 #####################################################################################
-
+class TextBox(TextInput):
+    def draw_box(self):
+        
+        self.pos(200,100)
+        self.writer.pendown()
+        self
 #####################################################################################
 #                                  SendButton                                       #
 #####################################################################################
