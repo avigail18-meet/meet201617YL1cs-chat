@@ -1,6 +1,6 @@
 #2016-2017 PERSONAL PROJECTS: TurtleChat!
-#WRITE YOUR NAME HERE!
-
+#WRITE YOUR NAME HERE
+#Avigail Shashoua#
 #####################################################################################
 #                                   IMPORTS                                         #
 #####################################################################################
@@ -28,7 +28,6 @@ from turtle_chat_widgets import Button, TextInput
 #
 #Hints:
 #1. in draw_box, you will draw (or stamp) the space on which the user's input
-#will appear.
 #
 #2. All TextInput objects have an internal turtle called writer (i.e. self will
 #   have something called writer).  You can write new text with it using code like
@@ -40,15 +39,31 @@ from turtle_chat_widgets import Button, TextInput
 #   self.writer.clear()
 #
 #3. If you want to make a newline character (i.e. go to the next line), just add
-#   \r to your string.  Test it out at the Python shell for practice
+#   \r to your string.  Test it out at the Python shell for practice\
 #####################################################################################
 #####################################################################################
+'''
+TEXTBOX
+'''
 class TextBox(TextInput):
     def draw_box(self):
         
-        self.pos(200,100)
+        self.writer.goto(-self.width, 100)
         self.writer.pendown()
-        self
+        self.writer.goto(-self.width, 100)
+        self.writer.goto(-self.width, -self.height)
+        self.writer.goto(self.width, -self.height)
+        self.writer.goto(self.width, self.height)
+        self.writer.goto(-self.width, 100)
+
+    '''
+    write
+    '''
+    def write_msg(self):
+        self.writer.clear()
+        self.writer.write(self.new_msg)
+        
+        
 #####################################################################################
 #                                  SendButton                                       #
 #####################################################################################
@@ -66,7 +81,13 @@ class TextBox(TextInput):
 #      you send messages and update message displays.
 #####################################################################################
 #####################################################################################
-
+class SendButton(Button):
+    def __init__(self, view):
+        self.view=view
+        super(SendButton, self).__init__()
+        
+    def fun(self,x=None,y=None):
+        self.view.send_msg()
 
 ##################################################################
 #                             View                               #
@@ -91,12 +112,13 @@ class View:
         ###
         #Store the username and partner_name into the instance.
         ###
-
+        self.username = username
+        self.partner_name = partner_name
         ###
         #Make a new client object and store it in this instance of View
         #(i.e. self).  The name of the instance should be my_client
         ###
-
+        self.my_client = client()
         ###
         #Set screen dimensions using turtle.setup
         #You can get help on this function, as with other turtle functions,
@@ -122,18 +144,22 @@ class View:
         #You can use the clear() and write() methods to erase
         #and write messages for each
         ###
-
+        self.lest_msg = turtle.clone()
         ###
         #Create a TextBox instance and a SendButton instance and
         #Store them inside of this instance
         ###
+        self.TextBox = TextBox()
 
+        self.SendButton(self)
         ###
         #Call your setup_listeners() function, if you have one,
         #and any other remaining setup functions you have invented.
         ###
 
     def send_msg(self):
+        self.my_client.send(self.get_msg())
+        self.msg_queue.append(self
         '''
         You should implement this method.  It should call the
         send() method of the Client object stored in this View
@@ -143,7 +169,6 @@ class View:
         It should call self.display_msg() to cause the message
         display to be updated.
         '''
-        pass
 
     def get_msg(self):
         return self.textbox.get_msg()
