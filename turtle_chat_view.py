@@ -123,7 +123,7 @@ class View:
         #Make a new client object and store it in this instance of View
         #(i.e. self).  The name of the instance should be my_client
         ###
-        self.my_client = client()
+        self.my_client = Client()
         ###
         #Set screen dimensions using turtle.setup
         #You can get help on this function, as with other turtle functions,
@@ -134,8 +134,6 @@ class View:
         #
         #at the Python shell.
         ###
-        my_client=Client()
-        self.my-client=my_client
         textbox=TextBox()
         self.textbox=textbox
         self.textbox=draw_box
@@ -211,6 +209,8 @@ class View:
         turtle.listen()
 
     def msg_received(self,msg):
+        self.msg_queue.insert(0,msg)
+        self.display_msg()
         '''
         This method is called when a new message is received.
         It should update the log (queue) of messages, and cause
@@ -225,6 +225,7 @@ class View:
         #or append (to put at the end).
         #
         #Then, call the display_msg method to update the display
+        
 
     def display_msg(self):
         '''
