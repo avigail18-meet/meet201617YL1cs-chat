@@ -107,8 +107,6 @@ class View:
     _LINE_SPACING=round(_SCREEN_HEIGHT/2/(_MSG_LOG_LENGTH+1))
 
     def __init__(self,username='Me',partner_name='Partner'):
-        self.username=username
-        self.partner=partner
         #self.my_client=Client()
         '''
         :param username: the name of this chat user
@@ -157,9 +155,9 @@ class View:
             self.msg_queue.insert(i, " ")
             self.msg_queue_turtles.append(turtle.clone())
         for me in range (10):
-            self.msg_queue_turtles.[me].hideturtle()
-            self.msg_queue_turtles.[me].penup()
-            self.msg_queue_turtles.[me].goto(-140, me*20)
+            self.msg_queue_turtles[me].hideturtle()
+            self.msg_queue_turtles[me].penup()
+            self.msg_queue_turtles[me].goto(-140, me*20)
         ###
         #Create a TextBox instance and a SendButton instance and
         #Store them inside of this instance
