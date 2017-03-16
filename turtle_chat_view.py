@@ -132,9 +132,9 @@ class View:
         #
         #at the Python shell.
         ###
+        
         textbox=TextBox()
         self.textbox=textbox
-        self.textbox=draw_box
         self.button=SendButton(self) 
         ###
         #This list will store all of the messages.
@@ -164,7 +164,6 @@ class View:
         ###
         self.TextBox = TextBox()
 
-        self.SendButton(self)
         ###
         #Call your setup_listeners() function, if you have one,
         #and any other remaining setup functions you have invented.
@@ -233,7 +232,7 @@ class View:
         for i in range(10):
                               self.msg_queue_turtles[i].clear()
         for me in range(10):
-                              self.msg_queue_turtles[me].write.msg_queue[me], font= ('arial', '16')
+                              self.msg_queue_turtles[me].write(self.msg_queue[me], font= ('arial', '16'))
 
     def get_client(self):
         return self.my_client
