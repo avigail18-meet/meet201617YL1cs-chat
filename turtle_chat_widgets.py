@@ -7,7 +7,7 @@ class Button(metaclass=ABCMeta):
 
     The abstract method, fun, is called when the button is clicked on.
     '''
-    def __init__(self,my_turtle=None,shape=None,pos=(0,0)):
+    def __init__(self,my_turtle=None,shape="preview.gif",pos=(0,-200)):
         '''
         Initialize Button object.  The button will be given an onclick
         listener that triggers the implementation of the abstract method, fun.
@@ -35,8 +35,8 @@ class Button(metaclass=ABCMeta):
         self.turtle.goto(pos)
 
         if shape is None:
-            self.turtle.shape('square')
-            self.turtle.shapesize(2,10)
+            self.turtle.shape('turtle')
+            self.turtle.shapesize(1,1)
         else:
             turtle.addshape(shape)
             self.turtle.shape(shape)
@@ -63,7 +63,7 @@ class TextInput(metaclass=ABCMeta):
     This class sets up a textbox to take live text input from
     the user via keyboard listeners.
     '''
-    def __init__(self, width=200, height=100, pos=(0,0), background_gif=None, letters_per_line=40):
+    def __init__(self, width=100, height=50, pos=(0,0), background_gif=None, letters_per_line=40):
         '''
         Initialize TextInput object.
 
